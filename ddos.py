@@ -40,8 +40,3 @@ if __name__ == "__main__":
 
     for _ in range(n):
         send_request(url)
-        break
-if __name__ == "__main__":
-    base_url()
-elif __name__ == "__main__":
-    post_url()
