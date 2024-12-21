@@ -26,11 +26,11 @@ def send_request(url):
     try:
         response = requests.get(url)
         if response.status_code == 200:
-            print("Request successful!")
+            print(Fore.GREEN + "Request successful!")
         else:
-            print("Request failed with status code:", response.status_code)
+            print(Fore.YELLOW + "Request failed with status code:", response.status_code)
     except Exception as e:
-        print("An error occurred:", str(e))
+        print(Fore.RED + "An error occurred:", str(e))
 
 if __name__ == "__main__":
     print_attractive_text()
