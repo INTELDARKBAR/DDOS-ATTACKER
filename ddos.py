@@ -1,6 +1,7 @@
 import pyfiglet
 from colorama import Fore, Style, init
 import requests
+import time
 
 # Initialize Colorama
 init(autoreset=True)
@@ -40,3 +41,4 @@ if __name__ == "__main__":
 
     for _ in range(n):
         send_request(url)
+        time.sleep(0.0001)
